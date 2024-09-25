@@ -27,7 +27,15 @@ app.use(cors({
 }));
 */
 
-app.use(cors({ origin: "*" }));
+const corsOptions = {
+    origin: '*', // or use '*' for all origins (not recommended for production)
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    credentials: true, // Include credentials if you're sending cookies, authorization headers, or TLS client certificates
+};
+
+app.use(cors(corsOptions));
+
+app.options('*', cors(corsOptions)); // Enable pre-flight across-the-board
 
 // 2) ROUTE
 app.use("/api/auth", authRouter);
