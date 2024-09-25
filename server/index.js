@@ -19,7 +19,7 @@ const imagekit = new ImageKit({
 // 1) MIDDLEWARES
 app.use(express.json());
 app.use(cors({
-    origin: process.env.CLIENT_URL, // Specify your frontend's origin
+    origin: [process.env.CLIENT_URL, 'http://localhost:5173'], // Specify your frontend's origin
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true, // Allow credentials
 }));

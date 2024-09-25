@@ -12,5 +12,13 @@ export default defineConfig({
       },
       // No need to externalize imagekitio-react
     }
-  }
+  },
+  server: {
+    proxy: {
+      '/api': {
+        target: 'http://localhost:3000', // Your backend URL
+        changeOrigin: true,
+      },
+    },
+  },
 });

@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import Upload from '../../components/upload/Upload';
 import NewPrompt from '../../components/newPrompt/NewPrompt';
 import model from '../../lib/gemini';
-import { ImageKit, IKImage } from 'imagekitio-react';
+import { IKImage } from 'imagekitio-react';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Markdown from 'react-markdown';
