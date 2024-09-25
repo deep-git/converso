@@ -236,11 +236,18 @@ app.get("/api/chats/:userId", async (req, res) => {
 // 3) MONGO DB CONNECTION
 const connectDB = async () => {
     try {
-        await mongoose.connect(process.env.MONGO_URI);
-        console.log("Connection to MongoDB successful.");
+        const mongoURI = process.env.MONGODB_URI;
+        if (!mongoURI) {
+            throw new Error("MongoDB URI is undefined");
+        }
+        await mongoose.connect(mongoURI, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+        });
+        console.log("MongoDB connected");
     } catch (error) {
-        console.error("Error connecting to MongoDB: ", error);
-        process.exit(1); // Exit process with failure
+        console.error("Error connecting to MongoDB:", error.message);
+        process.exit(1);
     }
 };
 
