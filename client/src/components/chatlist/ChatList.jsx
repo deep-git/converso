@@ -14,7 +14,7 @@ const ChatList = () => {
         queryFn: () => {
             if (!userData) return Promise.resolve([]); // Handle case when userData is not available
 
-            return fetch(`http://localhost:3000/api/userchats`, {
+            return fetch(`${import.meta.env.VITE_API_URL}/api/userchats`, {
                 method: 'POST', // Change to POST
                 credentials: "include",
                 headers: {

@@ -39,7 +39,7 @@ const Chat = () => {
         queryKey: ["chat", chatId],
         queryFn: () => {
             if (!userData) return Promise.resolve([]);
-            return fetch(`http://localhost:3000/api/chats/${chatId}`, {
+            return fetch(`${import.meta.env.VITE_API_URL}/api/chats/${chatId}`, {
                 method: 'POST',
                 credentials: "include",
                 headers: {
@@ -90,7 +90,7 @@ const Chat = () => {
 
     const mutationChatId = useMutation({
         mutationFn: ({ userData, question, answer, img }) => {
-            return fetch(`http://localhost:3000/api/chats/${data._id}`, {
+            return fetch(`${import.meta.env.VITE_API_URL}/api/chats/${data._id}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json"
@@ -163,7 +163,7 @@ const Chat = () => {
 
     const handleDeleteOption = async () => {
         try {
-            await fetch(`http://localhost:3000/api/chats/${chatId}`, {
+            await fetch(`${import.meta.env.VITE_API_URL}/api/chats/${chatId}`, {
                 method: 'DELETE',
                 credentials: 'include',
                 headers: {
