@@ -2,7 +2,6 @@ import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
-import config from "./config.json" assert { type: "json" };
 import authRouter from "./routes/authRoutes.js";
 import ImageKit from "imagekit";
 import UserChats from "./models/userChats.js";
