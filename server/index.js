@@ -29,6 +29,7 @@ app.use(cors({
 
 const allowedOrigins = [
     'https://main--converso-ai.netlify.app', // Production
+    'https://converso-ai.netlify.app', // Production
     'http://localhost:5173' // Development
 ];
 
