@@ -27,15 +27,27 @@ app.use(cors({
 }));
 */
 
+const allowedOrigins = [
+    'https://main--converso-ai.netlify.app', // Production
+    'http://localhost:5173' // Development
+];
+
 const corsOptions = {
-    origin: '*', // or use '*' for all origins (not recommended for production)
+    origin: function (origin, callback) {
+        if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+            callback(null, true);
+        } else {
+            console.error(`CORS error: Origin ${origin} not allowed`);
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    credentials: true, // Include credentials if you're sending cookies, authorization headers, or TLS client certificates
+    credentials: true,
 };
 
 app.use(cors(corsOptions));
 
-app.options('*', cors(corsOptions)); // Enable pre-flight across-the-board
+app.options('*', cors(corsOptions));
 
 // 2) ROUTE
 app.use("/api/auth", authRouter);
