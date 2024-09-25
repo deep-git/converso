@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "@google/generative-ai": "^0.19.0",
+    "imagekitio-react": "^4.2.0",
+    "jwt-decode": "^4.0.0",
+    "lucide-react": "^0.445.0"
+  }
+}

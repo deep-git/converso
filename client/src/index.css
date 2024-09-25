@@ -1,0 +1,97 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#root {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.message {
+    padding: 1px 10px;
+    border-radius: 8px;
+    max-width: 80%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+    display: flex;
+    /* Use flex to align the image and text properly */
+    align-items: center;
+    /* Center align items vertically */
+}
+
+.user {
+    background-color: #EBEBED;
+    align-self: flex-end;
+    margin-left: auto;
+}
+
+.message:not(.user) {
+    /* Adjust as needed for AI messages */
+    align-self: flex-start;
+}
+
+.avatar {
+    flex-shrink: 0;
+    /* Prevent avatars from shrinking */
+}
+
+.chat p {
+    margin: 10px 0px;
+}
+
+.chat li {
+    margin: 10px 0px;
+}
+
+.scrollbar-hidden::-webkit-scrollbar {
+    display: none;
+    /* Hide scrollbar for Chrome, Safari, and Opera */
+}
+
+.scrollbar-hidden {
+    -ms-overflow-style: none;
+    /* Hide scrollbar for Internet Explorer and Edge */
+    scrollbar-width: none;
+    /* Hide scrollbar for Firefox */
+}
+
+.chat-container {
+    height: calc(100vh - some_value);
+    /* Adjust as necessary */
+    overflow-y: auto;
+    /* This enables scrolling */
+}
+
+.wrapper_chat::-webkit-scrollbar {
+    width: 5px;
+}
+
+.wrapper_chat::-webkit-scrollbar-thumb {
+    background-color: #5E5F61;
+    border-radius: 5px;
+}
+
+.wrapper_chat::-webkit-scrollbar-track {
+    background-color: #EBEBED;
+}
+
+/* Dark mode styles */
+.dark .wrapper_chat::-webkit-scrollbar-thumb {
+    background-color: #5E5F61;
+    /* Dark mode thumb color */
+}
+
+.dark .wrapper_chat::-webkit-scrollbar-track {
+    background-color: #323337;
+    /* Dark mode track color */
+}
+
+.email_scroll::-webkit-scrollbar {
+    height: 3px;
+}
+
+.email_scroll::-webkit-scrollbar-thumb {
+    background-color: #323337;
+}
