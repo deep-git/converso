@@ -237,7 +237,7 @@ app.get("/api/chats/:userId", async (req, res) => {
 // 3) MONGO DB CONNECTION
 const connectDB = async () => {
     try {
-        await mongoose.connect(process.env.MONGO_URI || config.connectionString);
+        await mongoose.connect(process.env.MONGO_URI);
         console.log("Connection to MongoDB successful.");
     } catch (error) {
         console.error("Error connecting to MongoDB: ", error);
