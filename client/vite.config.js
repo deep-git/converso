@@ -6,9 +6,11 @@ export default defineConfig({
   plugins: [react()],
   build: {
     rollupOptions: {
-      external: [
-        'imagekitio-react' // Add the package here
-      ]
+      // Here, you can include any additional configurations if needed
+      output: {
+        // Optional: Customize output options
+      },
+      // No need to externalize imagekitio-react
     }
   }
 });
