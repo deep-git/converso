@@ -20,6 +20,7 @@ const imagekit = new ImageKit({
 app.use(express.json());
 app.use(cors({
     origin: process.env.CLIENT_URL, // Specify your frontend's origin
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true, // Allow credentials
 }));
 
